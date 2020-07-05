@@ -17,6 +17,10 @@ func (v ValidateError) Error() string {
 	return fmt.Sprintf("verify failed.filed=%v,val=%v", v.fieldName, v.fieldValue)
 }
 
+/*
+  true,nil 校验成功
+  false 失败，ValidateError是失败的字段以及原因
+*/
 func Validate(input interface{}) (bool, []ValidateError) {
 	typeOf := reflect.TypeOf(input)
 	valueOf := reflect.ValueOf(input)
