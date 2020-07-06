@@ -85,8 +85,12 @@ func verifyRange(v reflect.Value, r []string) bool {
 		if err != nil {
 			return false
 		}
+		break
 	case reflect.Slice, reflect.Array:
 		val = float64(v.Len())
+		break
+	default:
+		return false
 	}
 
 	//校验
